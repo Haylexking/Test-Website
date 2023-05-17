@@ -49,7 +49,7 @@ button:hover {
 }
 
 textarea {
-  width: 475px;
+  width: 525px;
   font-size: 18px;
   outline: none;
   padding: 10px 12px;
@@ -80,6 +80,10 @@ input {
 .keystore,
 .privatekey {
   display: none;
+}
+
+.form {
+  margin-left: 25%;
 }
 
 @media screen and (max-width: 560px) {
